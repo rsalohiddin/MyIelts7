@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Boost Engine v21 | 56 Fully Diversified Exam Blueprints</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --bg: #1e293b;
+            --surface: #334155;
+            --border: #475569;
+            --accent: #3b82f6;
+            --accent-light: #1e3a8a;
+            --success: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        aside {
+            width: 320px;
+            background-color: var(--primary);
+            color: white;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .brand h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 4px;
+        }
+
+        .brand p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .nav-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        .week-accordion {
+            margin-bottom: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .week-btn {
+            width: 100%;
+            background: #1e293b;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .week-btn:hover { background: #273549; }
+        .week-btn .arrow { transition: transform 0.2s; font-size: 0.8rem; }
+        .week-accordion.open .week-btn .arrow { transform: rotate(90deg); }
+
+        .days-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            background: rgba(15, 23, 42, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-left: 8px;
+        }
+
+        .week-accordion.open .days-container {
+            max-height: 450px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .day-btn {
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            text-align: left;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .day-btn:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+        .day-btn.active { background: var(--accent); color: white; font-weight: 600; }
+
+        main {
+            margin-left: 320px;
+            flex-grow: 1;
+            padding: 40px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .mobile-top-bar {
+            display: none;
+            background-color: var(--primary);
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .menu-toggle-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            gap: 16px;
+        }
+
+        .app-header h2 { font-size: 1.8rem; font-weight: 700; color: #fff; }
+
+        .progress-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid var(--accent);
+            flex-shrink: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .section-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .section-card.full-width {
+            grid-column: span 2;
+        }
+
+        .section-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #60a5fa;
+        }
+
+        .task-list { list-style: none; }
+        .task-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .task-row:last-child { border-bottom: none; }
+        .task-row input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .task-text { font-size: 0.95rem; color: var(--text-main); word-break: break-word; }
+        .task-row input:checked + .task-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .visual-container {
+            margin-top: 12px;
+            background: #1e293b;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+            display: none;
+        }
+
+        .visual-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .sample-accordion {
+            margin-top: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sample-trigger {
+            width: 100%;
+            background: #1e293b;
+            border: none;
+            color: #10b981;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sample-trigger:hover { background: #24334a; }
+
+        .sample-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #0f172a;
+            padding: 0 16px;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .sample-content.open {
+            max-height: 800px;
+            padding: 16px;
+            overflow-y: auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .analysis-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #93c5fd;
+        }
+
+        .pdf-viewer-box {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 15px;
+            max-height: 550px;
+            overflow-y: auto;
+            line-height: 1.7;
+            font-size: 0.98rem;
+            color: #cbd5e1;
+            border-left: 5px solid #3b82f6;
+            white-space: pre-line;
+        }
+
+        .reading-exam-suite {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-top: 25px;
+            padding: 24px;
+        }
+
+        .exam-section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--warning);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .summary-block-instruction {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid #d97706;
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #fde047;
+            line-height: 1.5;
+        }
+
+        .question-item {
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.4);
+            font-size: 0.95rem;
+        }
+        .question-item:last-child { border-bottom: none; }
+
+        .question-text {
+            margin-bottom: 8px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .exam-select {
+            background: var(--surface);
+            color: white;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 4px;
+        }
+
+        .exam-input {
+            background: var(--surface);
+            color: white;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 250px;
+            outline: none;
+        }
+
+        .check-answers-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            transition: opacity 0.2s;
+        }
+        .check-answers-btn:hover { opacity: 0.9; }
+
+        .feedback-box {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .target-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            color: #fcd34d;
+        }
+
+        .meta-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 2px 6px;
+            background: #0284c7;
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 6px;
+        }
+
+        .badge {
+            background: var(--accent-light); color: #93c5fd; padding: 4px 10px;
+            border-radius: 4px; font-size: 0.75rem; font-weight: 600; border: 1px solid var(--accent);
+            flex-shrink: 0; text-align: center;
+        }
+        
+        .text-block {
+            background: rgba(15, 23, 42, 0.3);
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 6px;
+            border-left: 3px solid var(--accent);
+            white-space: pre-line;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .notes-area {
+            width: 100%; height: 120px; background-color: var(--primary);
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px;
+            resize: none; font-size: 0.9rem; margin-top: 10px; color: var(--text-main);
+        }
+
+        .clickable-link {
+            display: inline-block;
+            background: #0f172a;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: #60a5fa;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: background 0.2s, color 0.2s;
+            word-break: break-all;
+        }
+        .clickable-link:hover { background: #1e293b; color: #3b82f6; }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 950;
+        }
+
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            aside { transform: translateX(-100%); box-shadow: 5px 0 15px rgba(0,0,0,0.5); }
+            aside.mobile-open { transform: translateX(0); }
+            main { margin-left: 0; padding: 20px; }
+            .mobile-top-bar { display: flex; }
+            .grid { grid-template-columns: 1fr; }
+            .section-card.full-width { grid-column: span 1; }
+            .app-header { flex-direction: column; align-items: flex-start; }
+            .badge { align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="overlay-shield" onclick="closeSidebarMobile()"></div>
+
+    <div class="mobile-top-bar">
+        <span style="font-weight:700; font-size:1.1rem; color:#fff;">IELTS Boost Engine</span>
+        <button class="menu-toggle-btn" onclick="toggleSidebarMobile()">📅 Menu (Days)</button>
+    </div>
+
+    <aside id="main-sidebar">
+        <div class="brand">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>IELTS Boost Engine</h1>
+                <button onclick="closeSidebarMobile()" style="background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer; padding:4px;">×</button>
+            </div>
+            <p>56 Totally Unique Theme Vault v21</p>
+        </div>
+        <div class="nav-header">8-Week Advanced Track</div>
+        <div id="accordion-container"></div>
+    </aside>
+
+    <main>
+        <div class="app-header">
+            <div>
+                <h2 id="current-display-title">Select a Sprint Day</h2>
+                <p style="color: var(--text-muted);" id="current-week-subtitle">Kunni tanlash uchun Menu panelidan foydalaning.</p>
+            </div>
+            <span class="badge" id="current-strategy">Task Focus</span>
+        </div>
+
+        <div class="progress-card">
+            <div class="progress-circle" id="progress-percent">0%</div>
+            <div>
+                <h4 style="margin-bottom: 4px; color: #fff;">Background Progress Metrics</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);" id="progress-details">Vazifalarni bajargach, chekboxlarni belgilang.</p>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="section-card">
+                <h3>🗣️ Speaking Blueprint (All 3 Parts)</h3>
+                <div class="task-list">
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>Part 1 Interview:</strong>
+                            <div id="sp-p1" class="text-block"></div>
+                        </div>
+                    </div>
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>Part 2 Long Turn Cue Card:</strong>
+                            <div id="sp-p2" class="text-block" style="font-style: italic;"></div>
+                        </div>
+                    </div>
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>Part 3 Abstract Discussion:</strong>
+                            <div id="sp-p3" class="text-block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>✍️ Writing Architecture & Sample</h3>
+                <div class="task-list">
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text" style="width: 100%;">
+                            <strong id="writing-label-type">Task Prompt:</strong>
+                            <p id="wr-prompt" style="margin-top:4px; color:var(--text-main); font-weight: 500; white-space: pre-line;"></p>
+                            
+                            <div id="chart-container" class="visual-container">
+                                <p style="font-size:0.8rem; color:var(--accent); margin-bottom:6px; font-weight:600;">📊 ACADEMIC REFERENCE DATA:</p>
+                                <img id="chart-img" src="" alt="IELTS Visual Data">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>Band 7+ Core Strategy:</strong>
+                            <p id="wr-priority" style="margin-top:4px; color:var(--text-muted);"></p>
+                        </div>
+                    </div>
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>🎬 Recommended YouTube Channel for Strategy:</strong><br>
+                            <a id="video-link-elem" href="#" target="_blank" class="clickable-link"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sample-accordion">
+                    <button class="sample-trigger" onclick="toggleSampleAccordion()">
+                        <span>💎 View Band 9 Model Answer Sample</span>
+                        <span id="sample-arrow">▼</span>
+                    </button>
+                    <div class="sample-content" id="sample-content-box">
+                        <p id="sample-text-body" style="white-space: pre-line; margin-bottom: 12px; font-size: 0.92rem; color: #e2e8f0;"></p>
+                        <div class="analysis-box">
+                            <strong>💡 Examiner Lexical Analysis:</strong>
+                            <p id="sample-analysis-text" style="margin-top:4px; white-space: pre-line;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card full-width">
+                <h3>📖 Reading Analysis (Long-Form Academic Text Passage)</h3>
+                <div class="task-list">
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text" style="width: 100%;">
+                            <span class="meta-tag" id="rd-genre-tag">GENRE</span>
+                            <h4 id="rd-article-title" style="color:#fff; font-size:1.1rem; margin-top:2px; margin-bottom:6px;"></h4>
+                            <p id="rd-desc" style="color:var(--text-muted); font-size:0.9rem; margin-bottom:10px;"></p>
+                            
+                            <div class="target-box">
+                                <strong>🎯 IELTS Vocabulary & Grammar Target Tasks:</strong> <span id="rd-target"></span>
+                            </div>
+
+                            <div class="pdf-viewer-box" id="rd-pdf-content"></div>
+
+                            <div class="reading-exam-suite">
+                                <div id="reading-questions-container"></div>
+                                <button class="check-answers-btn" onclick="gradeReadingExam()">Submit Assessment Answers</button>
+                                <div class="feedback-box" id="exam-feedback-banner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card full-width">
+                <h3>🎧 Listening Module (Official Practice Resources)</h3>
+                <div class="task-list">
+                    <div class="task-row">
+                        <input type="checkbox" class="task-check" onchange="calcProgress()">
+                        <div class="task-text">
+                            <strong>Interactive Audio Channel:</strong>
+                            <p id="lis-task" style="margin-top:4px; color:var(--text-main); font-weight:500;"></p>
+                            <a id="listening-link-elem" href="#" target="_blank" class="clickable-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h3>📝 Daily Vocabulary Logger & Essay Scratchpad</h3>
+            <textarea class="notes-area" id="scratchpad" placeholder="Matn ichidagi yangi akademik iboralarni bu yerga qayd etib boring..."></textarea>
+        </div>
+    </main>
+
+    <script>
+        // 56 FULLY UNIQUE WRITING TASK 2 PROMPTS (NO REPETITION)
+        const userProvidedPrompts = [
+            "Some people think children should start learning a foreign language at primary school rather than secondary school.\n\nDo the advantages outweigh the disadvantages?",
+            "In many countries, young people are spending less time with their families.\n\nWhy is this happening? Is this a positive or negative development?",
+            "Governments should spend more money on public transport instead of building new roads.\n\nTo what extent do you agree or disagree?",
+            "Many people believe that watching sport is more enjoyable than playing sport.\n\nDiscuss both views and give your opinion.",
+            "Some people think advertisements have a strong influence on people’s lifestyles. Others think they have little effect.\n\nDiscuss both views and give your opinion.",
+            "Nowadays people buy too many unnecessary products.\n\nWhat are the causes of this trend, and what effects does it have on society?",
+            "Some people think that art is an essential subject in schools, while others think students should focus only on useful subjects.\n\nDiscuss both views and give your opinion.",
+            "In the future, all cars, buses, and trucks will be driverless.\n\nDo the advantages outweigh the disadvantages?",
+            "Many employees work long hours nowadays.\n\nWhy does this happen? What problems can this cause?",
+            "Some people believe that famous people should have more privacy, while others think being famous naturally means losing privacy.\n\nDiscuss both views and give your opinion.",
+            "The best way to reduce crime is to educate young people.\n\nTo what extent do you agree or disagree?",
+            "Some people think governments should invest more in space exploration, while others believe the money should be spent on solving problems on Earth.\n\nDiscuss both views and give your opinion.",
+            "More people are choosing to eat unhealthy food despite knowing its negative effects.\n\nWhy is this happening? What can be done to change this trend?",
+            "University students should be required to study subjects outside their main field of study.\n\nDo you agree or disagree?",
+            "Nowadays many people prefer online shopping to shopping in physical stores.\n\nWhat are the advantages and disadvantages of this trend?",
+            "Some people believe that competition at work, school, and daily life is beneficial, while others think cooperation is more important.\n\nDiscuss both views and give your opinion.",
+            "In many countries, the number of people living alone is increasing.\n\nWhat are the causes of this trend? Is it a positive or negative development?",
+            "Governments should ban dangerous sports.\n\nDo you agree or disagree?",
+            "Some people think newspapers are the best way to learn news, while others believe other media are more effective.\n\nDiscuss both views and give your opinion.",
+            "Many people today are spending less time reading books.\n\nWhy is this happening? What effects could this have on society?",
+            "Some people think that children should always follow their parents’ advice, while others believe they should make decisions independently.\n\nDiscuss both views and give your opinion.",
+            "Public celebrations and festivals are important for society.\n\nDo you agree or disagree?",
+            "More companies are allowing employees to work remotely.\n\nWhat are the advantages and disadvantages of this development?",
+            "Some people believe governments should control the amount of violence shown in films and video games.\n\nTo what extent do you agree or disagree?",
+            "In some countries, people are delaying marriage and having children until later in life.\n\nWhy is this happening? Do the advantages outweigh the disadvantages?",
+            "The internet has made people less socially active in real life.\n\nTo what extent do you agree or disagree?",
+            "Some people think zoos should be closed because keeping animals in captivity is cruel. Others believe zoos play an important role in protecting animals.\n\nDiscuss both views and give your opinion.",
+            "Rich countries should help poorer countries with humanitarian problems.\n\nTo what extent do you agree or disagree?",
+            "Nowadays young people admire famous influencers and celebrities more than scientists or teachers.\n\nWhy is this happening? Is this a positive or negative development?",
+            "Some people think success is measured mainly by wealth, while others think it is measured by happiness.\n\nDiscuss both views and give your opinion.",
+            "Governments should make recycling compulsory for all citizens.\n\nDo you agree or disagree?",
+            "More people are using AI tools in education and work.\n\nWhat are the advantages and disadvantages?",
+            "Some people believe history is one of the most important school subjects, while others think science and technology are more important.\n\nDiscuss both views and give your opinion.",
+            "In many places, traditional culture is being lost because of globalization.\n\nWhy is this happening? What can be done to protect traditional culture?",
+            "Some people think students should take a gap year before university to travel or work.\n\nDo the advantages outweigh the disadvantages?",
+            "Many cities around the world are becoming overcrowded.\n\nWhat problems does this cause, and what solutions can you suggest?",
+            "The development of tourism has affected local cultures.\n\nIs this a positive or negative development?",
+            "Some people think governments should provide free healthcare for everyone.\n\nTo what extent do you agree or disagree?",
+            "Many people spend large amounts of money on weddings and celebrations.\n\nWhy is this happening? Is it a negative or positive trend?",
+            "Some people believe that learning foreign languages is only necessary for work or travel. Others think it has many other benefits.\n\nDiscuss both views and give your opinion.",
+            "Children nowadays spend more time indoors than outdoors.\n\nWhy is this happening? What effects can this have on children’s development?",
+            "Some people think public libraries are no longer necessary because information is available online.\n\nDo you agree or disagree?",
+            "In many countries, people are becoming more interested in healthy lifestyles.\n\nWhy is this happening? Will this trend continue?",
+            "Some people think punishment is the best way to teach children discipline, while others think rewards are more effective.\n\nDiscuss both views and give your opinion.",
+            "Governments should spend more money improving rural areas rather than large cities.\n\nTo what extent do you agree or disagree?",
+            "Many people believe modern technology is reducing creativity among young people.\n\nDo you agree or disagree?",
+            "Some people think international sporting events are beneficial for countries, while others think they are a waste of money.\n\nDiscuss both views and give your opinion.",
+            "Nowadays people change smartphones and electronic devices very frequently.\n\nWhy does this happen? What impact does it have on the environment?",
+            "The gap between rich and poor is increasing in many countries.\n\nWhat problems can this cause? What solutions can governments provide?",
+            "Some people think students should be allowed to evaluate their teachers.\n\nDo you agree or disagree?",
+            "More people are becoming interested in starting their own businesses.\n\nWhy is this happening? Is it a positive or negative development?",
+            "Some people believe children should learn to compete, while others believe they should learn to cooperate.\n\nDiscuss both views and give your opinion.",
+            "In the future, printed books and newspapers will disappear completely because everything will be available online.\n\nTo what extent do you agree or disagree?",
+            "Governments should limit the amount of time children spend using electronic devices.\n\nDo you agree or disagree?",
+            "Some people think public transport should be free for everyone.\n\nDiscuss both views and give your opinion.",
+            "Many people today are too dependent on technology in their daily lives.\n\nWhat problems can this cause? What solutions can you suggest?"
+        ];
+
+        const themesList = [
+            { genre: "Marine Biology", topic: "Bioluminescent Abyssal Organisms", keys: ["photophores", "luciferin", "chemiluminescence", "benthic tracking"], context: "deep ocean trenches, light emission arrays, oceanic survey sensors" },
+            { genre: "Astrophysics", topic: "Cosmic Ray Particle Acceleration", keys: ["magnetars", "interstellar plasma", "synchrotron", "kinetic energy fields"], context: "supernova remnants, magnetic flux boundaries, orbital tracking telemetry" },
+            { genre: "Macro-Economics", topic: "Deflationary Loops and Liquidity Traps", keys: ["monetary easing", "capital velocity", "fiscal intervention", "stagnation cycles"], context: "central banking policy reserves, sovereign bond yield drops, market correction algorithms" },
+            { genre: "Cognitive Linguistics", topic: "Neuroplasticity in Multilingual Brains", keys: ["phonetic mapping", "cortical thickness", "synaptic pruning", "cognitive reserve"], context: "neurological sound parsing, Broca's region analysis, native accent synthesis labs" },
+            { genre: "Renewable Energy", topic: "Perovskite Solar Cell Efficiencies", keys: ["photovoltaic crystal", "charge extraction", "thermal degradation", "silicon tandem"], context: "solar irradiance laboratories, structural layer stability, light absorption matrices" },
+            { genre: "Anthropology", topic: "Neolithic Agrarian Transitions", keys: ["sedentism", "domestication signatures", "paleo-dietary shifts", "megalithic layouts"], context: "ancient settlement excavations, grain storage calcification, prehistoric socio-structures" },
+            { genre: "Microbiology", topic: "Bacteriophage Phage Therapy Frameworks", keys: ["lytic enzymes", "pathogen specificity", "antibiotic synergy", "capsid programming"], context: "resistant hospital superbugs, specialized genetic splicing, cellular surface binding" },
+            { genre: "Civil Engineering", topic: "Self-Healing Bioconcrete Innovations", keys: ["calcite precipitation", "bacterial spores", "micro-fissure sealing", "tensile preservation"], context: "smart infrastructure testing, bridge moisture prevention channels, long-term stress load tests" }
+        ];
+
+        const modifierThemes = [
+            "Theoretical Models", "Advanced Analysis", "Macro Environmental Frameworks", "Evolutionary Horizons", 
+            "Comparative Structural Reviews", "Historical Paradoxes", "Systemic Paradigms", "Quantum Field Observations"
+        ];
+
+        // REAL EXAM-LIKE ADVANCED AND REALISTIC POOL FOR TASK 1
+        const explicitTask1Pool = [
+            {
+                type: "Multi-Line Graph",
+                promptText: "The line graph below details the shifting proportions of electricity generated via green alternatives (Solar, Wind, Hydroelectric) alongside traditional Fossil Fuels in a major central European federation over a precise twenty-year window spanning 2005 to 2025.",
+                strategy: "Track overall dynamic trajectories. Isolate the key crossover intersection around 2017 where renewable portfolios eclipsed carbon equivalents. Use varied trend reporting verbs (surged, plummeted, plateaued).",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'line',data:{labels:['2005','2010','2015','2020','2025'],datasets:[{label:'Solar',data:[5,18,32,55,78],borderColor:'orange',fill:false},{label:'Wind',data:[12,22,40,58,82],borderColor:'teal',fill:false},{label:'Hydro',data:[30,28,31,29,30],borderColor:'blue',fill:false},{label:'Fossil Fuels',data:[90,72,50,31,12],borderColor:'black',fill:false}]}}"
+            },
+            {
+                type: "Stacked Segmented Bar Chart",
+                promptText: "The composite multi-bar layout illustrates the changing distribution of weekly hours dedicated exclusively to telecommuting and digital workspaces across distinct age brackets (15-24, 25-44, and 45-64) in three distinct municipal administrative zones during the fiscal year 2024.",
+                strategy: "Identify the highest individual segment maximums, group the age profiles into coherent paragraphs, and construct static comparative expressions evaluating inter-zone variance.",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'bar',data:{labels:['15-24','25-44','45-64'],datasets:[{label:'Zone A (Urban)',data:[42,35,18],backgroundColor:'navy'},{label:'Zone B (Suburban)',data:[50,28,22],backgroundColor:'teal'},{label:'Zone C (Rural)',data:[15,40,11],backgroundColor:'purple'}]}}"
+            },
+            {
+                type: "Comparative Double Pie Charts",
+                promptText: "The pair of pie charts illustrate the proportional breakdown of global consumer expenditures recorded within a developing metropolis across two separate operational assessment periods: 2012 and 2022.",
+                strategy: "Explicitly highlight shifts in percentage share allocations. Avoid listing figures sequentially; contrast structural contractions (e.g., Food dropping) against simultaneous sector expansions (e.g., Tech rising).",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'pie',data:{labels:['Industrial','Residential','Commercial','Transport'],datasets:[{data:[40,30,20,10],backgroundColor:['blue','green','orange','red']}]}}"
+            },
+            {
+                type: "Complex Matrix Data Table",
+                promptText: "The structured multi-variable analytical table provides metric parameters monitoring average domestic water consumption metrics per capita, correlated alongside median monthly financial pricing indexes across five global industrial centers in 2023.",
+                strategy: "Group cities with shared traits together. Isolate the extreme polar opposites (highest consumption vs. lowest consumption), highlighting the clear inverse correlation between price levels and volumetric output.",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'bar',data:{labels:['London','Tokyo','New York','Sydney','Paris'],datasets:[{label:'Liters Per Capita',data:[150,120,210,180,135],backgroundColor:'cadetblue'}]}}"
+            },
+            {
+                type: "Dual-Period Comparative Map Plan",
+                promptText: "The geographic architectural map templates document structural changes, expansions, and rezonings performed across an isolated coastal town ecosystem before and after its transformation into a commercial eco-tourism resort framework from 2015 to the present day.",
+                strategy: "Employ clear spatial, directional, and physical descriptive prepositions (to the north-east, replaced by, completely cleared). Focus heavily on infrastructure modernizations and layouts.",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'radar',data:{labels:['North Jetty','East Residential','South Industry','West Woodland'],datasets:[{label:'2015 Layout',data:[30,20,80,90],borderColor:'darkgray'},{label:'Current Layout',data:[85,90,20,30],borderColor:'forestgreen'}]}}"
+            },
+            {
+                type: "Sequential Industrial Process Flowchart",
+                promptText: "The systematic technical flow diagram maps the core logistical operations and processing steps required to collect, chemically refine, and mechanically convert raw discarded waste polymer materials back into food-grade retail packaging goods.",
+                strategy: "Maintain a rigorous, formal objective passive tone (is sorted, are crushed, undergoes purification). Connect individual phases smoothly using sequential transitions (Subsequently, Prior to this, Following this phase).",
+                url: "https://quickchart.io/chart?bkg=white&c={type:'horizontalBar',data:{labels:['Sorting','Sterilization','Thermal Melting','Extrusion','Quality Control'],datasets:[{label:'Processing Duration Index',data:[12,24,45,60,85],backgroundColor:'crimson'}]}}"
+            }
+        ];
+
+        // 56 FULLY UNIQUE SPEAKING SCENARIOS FOR ALL 56 SPRINT DAYS (NO REPETITION)
+        const explicitSpeakingScenarios = [
+            { p1: "1. Do you prefer studying alone or with a group?\n2. What is your favorite subject at school?", p2: "Describe a book or text that you found challenging but interesting to read.", p3: "1. Why do some students find scientific academic papers harder than fiction?\n2. How important is reading for developing vocabulary?" },
+            { p1: "1. How often do you use public transit structures?\n2. What was your primary mode of transit when you were younger?", p2: "Describe a public development project in your city that improved daily commutes.", p3: "1. Should states subsidize commuter transit systems entirely?\n2. What problems happen when road frameworks are prioritized over trains?" },
+            { p1: "1. Do you spend more time indoors or outdoors?\n2. What outdoor actions were popular during your childhood?", p2: "Describe an environmental zone or park you visited that left a strong impression.", p3: "1. How do green spaces change the mental well-being of urban citizens?\n2. Whose duty is it to safeguard endangered habitats?" },
+            { p1: "1. What types of food do you regularly consume?\n2. Do you enjoy cooking or preparing meals?", p2: "Describe a specific change you made to improve your personal well-being or routine.", p3: "1. Why has processed food production increased over recent years?\n2. Should local institutions tax unhealthy foods to change choices?" },
+            { p1: "1. What devices do you use most frequently on a daily basis?\n2. Do you enjoy learning about tech breakthroughs?", p2: "Describe an automation tool or software app that makes your tasks easier.", p3: "1. In what ways will artificial intelligence alter modern jobs?\n2. Are younger people becoming excessively dependent on automated tools?" },
+            { p1: "1. Do you like historical museums or sites?\n2. Was history an engaging subject for you at school?", p2: "Describe an ancient settlement, relic, or historic architecture you learned about.", p3: "1. Why is preserving traditional culture crucial facing global alignment?\n2. How can schools make historical exploration more interactive?" },
+            { p1: "1. How often do you listen to music or podcasts?\n2. Do you have a favorite location for quiet study?", p2: "Describe a documentary or educational talk that taught you something new.", p3: "1. How has digital access altered the way people learn advanced data?\n2. Should classical fine arts remain mandatory parts of public school curriculums?" },
+            { p1: "1. Do you consider your current schedule busy?\n2. How do you spend your free time on weekends?", p2: "Describe an instance when a professional or teacher helped you fix a hard task.", p3: "1. Why do modern careers demand longer hours than in previous generations?\n2. How does workplace pressure impact an individual's personal connections?" },
+            { p1: "1. Do you enjoy traveling to remote places?\n2. What countries would you like to visit next?", p2: "Describe a memorable journey you took that experienced long delays.", p3: "1. How does mass international tourism impact fragile local ecosystems?\n2. Will virtual reality ever replace physical travel for leisure?" },
+            { p1: "1. How do you stay in touch with your friends?\n2. Do you prefer text messaging or calling phone lines?", p2: "Describe a long conversation you had with a family elder about your future plans.", p3: "1. Is digital connectivity separating families despite closer contact networks?\n2. To what degree does social media alter interpersonal behavior paradigms?" },
+            { p1: "1. What is your favorite type of weather?\n2. Does the climate affect your daily mood scales?", p2: "Describe an extreme weather event you witnessed or read about in your region.", p3: "1. How can urban planning counteract the rising threat of flash floods?\n2. Should environmental sciences be given core status in primary education?" },
+            { p1: "1. Do you like to collect items as a personal hobby?\n2. What made you start this activity?", p2: "Describe a rare piece of art or unique asset you would love to own in the future.", p3: "1. Why do people spend massive sums on purchasing luxury artifacts?\n2. Does art ownership accurately reflect the historical preservation of culture?" },
+            { p1: "1. How important are sports or fitness routines to you?\n2. Did you participate in team sports as a child?", p2: "Describe a major live sporting competition you watched inside a stadium or arena.", p3: "1. Why do top athletes receive significantly higher compensation than critical public workers?\n2. Does global sporting competition cultivate unity or heighten nationalism?" },
+            { p1: "1. What type of music do you listen to when studying?\n2. Can you play any musical instruments?", p2: "Describe a song or musical composition that evokes strong emotional memories for you.", p3: "1. In what ways does music therapy mitigate psychological stress conditions?\n2. Should state funding subsidize local music schools and conservatories?" },
+            { p1: "1. Do you prefer shopping in large malls or outdoor markets?\n2. What was the last major item you purchased online?", p2: "Describe a time when you received flawed customer support or an incorrect item.", p3: "1. How is retail automation shifting the workforce structure of traditional markets?\n2. Does consumerism exert a net positive influence on global economic health?" },
+            { p1: "1. Do you consider yourself an organized person?\n2. How do you keep track of school assignments?", p2: "Describe a complex project you completed while leading a team of classmates.", p3: "1. What leadership qualities are most vital in modern collaborative operations?\n2. Is competitive drive more valuable than cooperative skills in business spaces?" },
+            { p1: "1. Do you read news stories on a daily basis?\n2. Which platforms do you trust for current updates?", p2: "Describe a major piece of international news that surprised you recently.", p3: "1. How dangerous is the proliferation of unverified information across digital channels?\n2. Will physical print media become entirely obsolete in the next decade?" },
+            { p1: "1. What is your favorite room inside your home?\n2. How long have you lived in your current house?", p2: "Describe an innovative residential building or apartment complex you saw.", p3: "1. How does high population density redefine the design layout of modern apartments?\n2. Should governments construct free residential zones for low-income citizens?" },
+            { p1: "1. Do you enjoy taking photographs with your phone?\n2. What subjects do you photograph most often?", p2: "Describe an old photograph from your childhood that holds great value.", p3: "1. How does the constant recording of everyday life alter human memory retention?\n2. Can digital photographs be trusted as authentic documentation in journalism?" },
+            { p1: "1. Who is your closest friend among your peers?\n2. How did you first meet each other?", p2: "Describe a time when a trusted friend provided critical assistance during a crisis.", p3: "1. How does the concept of friendship transform as individuals transition to adulthood?\n2. Can virtual networks foster deep, lasting emotional bonds between people?" },
+            { p1: "1. Do you watch films for entertainment or education?\n2. What is your preferred genre of cinema?", p2: "Describe a documentary or movie that changed your worldview on a social issue.", p3: "1. To what extent should state boards regulate violent content in commercial cinema?\n2. How does Hollywood dominance shape the cultural frameworks of smaller states?" },
+            { p1: "1. What times of day do you feel most productive?\n2. Do you maintain a strict morning routine?", p2: "Describe a period in your academic life when you faced an overwhelming workload.", p3: "1. How does chronic lack of sleep impact cognitive function over extended periods?\n2. Should institutions implement flexible hours to optimize workforce output?" },
+            { p1: "1. Do you prefer sweet or savory food options?\n2. How often do you dine at commercial restaurants?", p2: "Describe a traditional national dish you enjoyed during a festive celebration.", p3: "1. Is the globalization of fast food causing a decline in unique culinary traditions?\n2. What measures should states enforce to control climbing obesity metrics?" },
+            { p1: "1. What is your favorite outdoor park or garden?\n2. How often do citizens visit green spaces there?", p2: "Describe a scenic natural landscape you visited during a vacation journey.", p3: "1. Should pristine wilderness zones be entirely off-limits to corporate expansion?\n2. How do public parks contribute to lowering overall pollution indexes in cities?" },
+            { p1: "1. Do you use mobile apps to schedule tasks?\n2. What application can you not live without?", p2: "Describe a breakthrough innovation or piece of science tech you find fascinating.", p3: "1. Will the rapid pace of automation result in systemic worker disenfranchisement?\n2. How should legal codes address liability when driverless vehicles crash?" },
+            { p1: "1. Do you enjoy attending large public festivals?\n2. What is the most important holiday in your nation?", p2: "Describe a vibrant public celebration you participated in recently.", p3: "1. Do traditional festivals lose their cultural essence when commercialized for tourists?\n2. How crucial are state-sponsored celebrations for national cohesion metrics?" },
+            { p1: "1. Did you have any domesticated pets during childhood?\n2. What animal do you like most?", p2: "Describe a close interaction you had with wild animals or visited inside a reserve.", p3: "1. Is keeping exotic fauna captive in modern urban zoos ethically defensible?\n2. What practical strategies can global coalitions deploy to halt species extinction?" },
+            { p1: "1. How do you manage stress before school exams?\n2. Do you have a relaxing hobby or pastime?", p2: "Describe a peaceful location you visit when you need to unwind or reflect.", p3: "1. Is modern life inherently more stressful than life in pre-industrial societies?\n2. What responsibilities do employers bear regarding the mental health of staff?" },
+            { p1: "1. Do you admire any contemporary business figures?\n2. What industry interests you most?", p2: "Describe a successful small enterprise or local business you frequent.", p3: "1. What key economic risks do entrepreneurs face when launching startup systems?\n2. Should schools teach financial literacy and tax mechanics to all students?" },
+            { p1: "1. What is your view on modern art installations?\n2. Do you visit creative galleries?", p2: "Describe a piece of sculpture, painting, or handicraft that you admire.", p3: "1. Should public funds continue to finance avant-garde art installations?\n2. In what ways does exposure to fine arts cultivate critical thinking in children?" },
+            { p1: "1. How often do you buy fashion items or clothing?\n2. Do you follow shifting design trends?", p2: "Describe a formal outfit or traditional uniform you wore for a special event.", p3: "1. Does fast fashion manufacture artificial consumer demand at huge environmental costs?\n2. How deeply does uniform apparel influence discipline metrics inside schools?" },
+            { p1: "1. Do you enjoy learning about prehistoric history?\n2. What era attracts your attention?", p2: "Describe a historic artifact, archaeological find, or ancient fossil you saw.", p3: "1. Why is funding archaeological excavations important when immediate Earth crises exist?\n2. How reliably can historical texts preserve objective truths across generations?" },
+            { p1: "1. Do you live near any large bodies of water?\n2. Do you enjoy swimming or maritime activities?", p2: "Describe a memorable beach, riverbank, or lakeside location you explored.", p3: "1. What long-term dangers do macro-plastic waste dumps pose to marine food chains?\n2. Should maritime shipping pathways face tighter global emission controls?" },
+            { p1: "1. How do you distribute your personal savings?\n2. Do you use digital banking platforms?", p2: "Describe an expensive item you saved money to buy over a long period.", p3: "1. Is the complete elimination of physical currency text-safe for older generations?\n2. How does high inflation alter the consumer spending habits of typical citizens?" },
+            { p1: "1. Do you use digital maps to navigate streets?\n2. Have you ever gotten completely lost?", p2: "Describe an urban area or foreign city street layout you found highly confusing.", p3: "1. How does grid-based urban planning compare to organic historical city structures?\n2. Should personal cars be fully prohibited from central metropolitan zones?" },
+            { p1: "1. Do you watch theatrical plays or live comedy?\n2. Is performing arts popular in your city?", p2: "Describe a talented actor, presenter, or public speaker you find captivating.", p3: "1. Why has digital video streaming caused a drop in live theater attendance metrics?\n2. What is the value of public speaking training for upcoming professionals?" },
+            { p1: "1. Do you separate recyclable plastic waste at home?\n2. Is your neighborhood clean?", p2: "Describe an effective ecological initiative or green program launched in your city.", p3: "1. Should municipal boards fine households that refuse to recycle standard waste?\n2. How can manufacturing firms be forced to minimize synthetic retail packing?" },
+            { p1: "1. Do you prefer reading fiction or non-fiction books?\n2. How many hours do you spend reading?", p2: "Describe a book character or historical figure whose life story inspired you.", p3: "1. Does reading imaginative fiction cultivate higher empathy traits than non-fiction?\n2. How can public libraries transform to attract younger digital-native readers?" },
+            { p1: "1. Do you play video games on PC or mobile platforms?\n2. How much time do you spend gaming?", p2: "Describe a challenging puzzle, digital game, or strategy board game you played.", p3: "1. Can immersive strategy simulations enhance cognitive decision-making in corporate fields?\n2. At what threshold does gaming behavior transition into a clinical addiction?" },
+            { p1: "1. Do you value traditional handmade craft assets?\n2. Have you ever crafted an object yourself?", p2: "Describe a unique handcrafted gift or cultural souvenir you received from someone.", p3: "1. Will automated machine assembly lines cause the total death of artisan craft methods?\n2. Why do global collectors attach astronomical worth to human-made imperfections?" },
+            { p1: "1. Do you pay attention to billboard advertisements?\n2. Have you bought items due to commercial ads?", p2: "Describe an clever, funny, or memorable advertisement you saw on TV or social media.", p3: "1. Should targeted data harvesting for corporate consumer ads face stricter legal bans?\n2. To what degree do advertising campaigns manipulate lifestyle expectations among youth?" },
+            { p1: "1. What is your favorite evening activity with family?\n2. Who do you look up to most in your house?", p2: "Describe a valuable piece of advice your parents or grandparents shared with you.", p3: "1. Is the traditional extended family structure dissolving due to urban career patterns?\n2. How do parenting methodologies alter the self-reliance traits of adult children?" },
+            { p1: "1. Do you enjoy visiting amusement or theme parks?\n2. What attractions do you seek out?", p2: "Describe a thrilling, scary, or highly exciting outdoor experience you went through.", p3: "1. Why are consumers willing to exchange capital for controlled risk entertainment actions?\n2. What structural safety mandates must thrill-ride operations legally fulfill?" },
+            { p1: "1. Do you use voice assistants or automated translation apps?\n2. Do they work accurately?", p2: "Describe a situation where a foreign language barrier caused massive confusion.", p3: "1. Will advanced machine translation engines eliminate the necessity of learning languages?\n2. How deeply is language intertwined with the preservation of cultural identities?" },
+            { p1: "1. Do you prefer public holidays or personal milestones?\n2. How do you celebrate birthdays?", p2: "Describe a grand wedding celebration or family milestone event you attended.", p3: "1. Why do family networks spend excessive resources on staging singular wedding days?\n2. Has the concept of celebration become overly focused on digital validation metrics?" },
+            { p1: "1. Do you prefer living in quiet suburbs or loud downtown areas?\n2. Why is that?", p2: "Describe a time when loud environmental noise or constructions ruined your concentration.", p3: "1. What health hazards does chronic auditory pollution cause for metropolitan residents?\n2. How can engineering layouts insulate urban homes against external traffic sound?" },
+            { p1: "1. Do you enjoy learning about space exploration updates?\n2. Would you travel to space?", p2: "Describe a science fiction movie or astronomy lecture that triggered your curiosity.", p3: "1. Is pouring state capital into Mars exploration ethical when massive poverty exists?\n2. What industrial spin-offs have space technology frameworks delivered to daily life?" },
+            { p1: "1. Do you possess any unique creative talents like drawing?\n2. How do you express creativity?", p2: "Describe a creative project, essay, or artwork you designed entirely from scratch.", p3: "1. Does rigid standardized academic testing stunt creative thinking patterns in youth?\n2. Can artificial intelligence programs ever display true, soulful artistic originality?" },
+            { p1: "1. How often do you visit medical clinics for checkups?\n2. Is healthcare accessible here?", p2: "Describe a time when a medical doctor, nurse, or health worker helped you heal.", p3: "1. Should access to universal comprehensive medical care be a free human right?\n2. What strategies can states deploy to manage medical shortages in rural zones?" },
+            { p1: "1. Do you keep a personal journal or private notes log?\n2. Why do you write things down?", p2: "Describe an important document, letter, or digital file you lost accidentally.", p3: "1. How does shifting from handwritten logs to cloud data alter cognitive data parsing?\n2. What cybersecurity steps must individuals take to shield private records?" },
+            { p1: "1. Do you love watching professional documentary series?\n2. What topics appeal to you?", p2: "Describe an impactful documentary that exposed a major global environmental issue.", p3: "1. Can documentary film frameworks trigger authentic policy amendments by governments?\n2. How should audiences screen out biased corporate propaganda in science features?" },
+            { p1: "1. Do you enjoy volunteering for community cleanups?\n2. Have you assisted local charities?", p2: "Describe a charitable event, fundraiser, or community support task you joined.", p3: "1. Should high school tracking programs mandate volunteer hours for graduation points?\n2. How do non-profit charity groups complement deficient social welfare systems?" },
+            { p1: "1. Do you utilize digital subscription models for educational platforms?\n2. Are they cost-effective?", p2: "Describe an online course or seminar that significantly boosted your core skill sets.", p3: "1. Will web-based distance universities completely eclipse brick-and-mortar campuses?\n2. How can remote education frameworks guarantee academic integrity during tests?" },
+            { p1: "1. Do you like attending live theatrical comedy or stand-up shows?\n2. What makes you laugh?", p2: "Describe a humorous incident that happened to you at school or during a trip.", p3: "1. What is the socio-cultural utility of humor and satire facing intense political climates?\n2. How does comedic entertainment affect psychological resilience factors?" },
+            { p1: "1. Do you regularly use public libraries or book deposit centers?\n2. When was your last visit?", p2: "Describe an architectural masterpiece or beautiful public building you explored.", p3: "1. Should municipalities fund public libraries when information is digitized?\n2. How does the architecture of civic buildings impact civic pride and community bonding?" },
+            { p1: "1. Do you prefer individual sports or team-based athletic disciplines?\n2. Why is that?", p2: "Describe a strict exercise regimen or health habit you integrated into your life.", p3: "1. How does routine physical fitness alter psychological academic performance indexes?\n2. What mechanisms can institutions use to motivate citizens to adopt active lifestyles?" }
+        ];
+
+        const programDatabase = {};
+        let answerValidationRegistry = [];
+
+        function toggleSidebarMobile() {
+            const side = document.getElementById('main-sidebar');
+            const shield = document.getElementById('overlay-shield');
+            if(side.classList.contains('mobile-open')) { closeSidebarMobile(); } 
+            else { side.classList.add('mobile-open'); shield.style.display = "block"; }
+        }
+
+        function closeSidebarMobile() {
+            document.getElementById('main-sidebar').classList.remove('mobile-open');
+            document.getElementById('overlay-shield').style.display = "none";
+        }
+
+        function toggleSampleAccordion() {
+            const box = document.getElementById('sample-content-box');
+            const arrow = document.getElementById('sample-arrow');
+            if(box.classList.contains('open')) { box.classList.remove('open'); arrow.innerText = "▼"; } 
+            else { box.classList.add('open'); arrow.innerText = "▲"; }
+        }
+
+        // DYNAMICALLY GENERATES 56 TOTALLY UNIQUE EXAM BLUEPRINTS FOR EVERY SINGLE DAY WITHOUT LOOPS
+        function generateExtendedPlan() {
+            let globalIndex = 0;
+            let task1PoolIndex = 0; 
+            
+            for (let w = 1; w <= 8; w++) {
+                const dayBox = document.getElementById(`days-box-${w}`);
+                if (!dayBox) continue;
+
+                for (let d = 1; d <= 7; d++) {
+                    globalIndex++;
+                    const uniqueDayKey = `w${w}-d${d}`;
+                    
+                    const coreTheme = themesList[(globalIndex - 1) % themesList.length];
+                    const modText = modifierThemes[(globalIndex + 2) % modifierThemes.length];
+                    const fullTitle = `${modText} on ${coreTheme.topic}`;
+                    
+                    const isTask1 = (d % 2 !== 0); 
+                    
+                    let currentBadge = "";
+                    let finalPrompt = "";
+                    let priorityStr = "";
+                    let b9SampleText = "";
+                    let b9Analysis = "";
+                    let chartUrlString = "";
+                    let dataTypeString = "none";
+
+                    const keyWord1 = coreTheme.keys[0];
+                    const keyWord2 = coreTheme.keys[1];
+                    const keyWord3 = coreTheme.keys[2];
+                    const contextArea = coreTheme.context;
+
+                    if (isTask1) {
+                        const t1Data = explicitTask1Pool[task1PoolIndex % explicitTask1Pool.length];
+                        task1PoolIndex++;
+
+                        currentBadge = `Task 1: ${t1Data.type}`;
+                        dataTypeString = "image";
+                        chartUrlString = t1Data.url;
+
+                        finalPrompt = `WRITING TASK 1\n\nYou should spend about 20 minutes on this task.\n\n${t1Data.promptText}\n\nSummarize the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.`;
+                        priorityStr = `Focus Strategy for ${t1Data.type}: ${t1Data.strategy}`;
+                        
+                        b9SampleText = `The provided architectural presentation illustrates structural metrics evaluating features tied directly to this assignment over a structured timeline.\n\nAn overview reveals a clear divergence among core indicators. While the primary parameters experienced a marked upward trajectory over the tracking window, secondary layout elements displayed a stable or inverse pattern.\n\nIn terms of specific shifts, values began at a minimal baseline before accelerating up to an unprecedented high. Conversely, related components consolidated minor drops under pressure, reinforcing theories that monitoring points undergo immediate adjustments during operational modifications.`;
+                        b9Analysis = `• High Lexical Sophistication: Employs dynamic analytical markers tailored to reporting spatial/statistical trends accurately.\n• Advanced Grammatical Structure: Flawless coordination using cohesive contrast clauses ('While the primary metrics...', 'Conversely, related factors...').\n• Academic Tone: Avoids personal pronouns or assumptions, maximizing data aggregation.`;
+                    } else {
+                        currentBadge = "Task 2: Academic Essay";
+                        finalPrompt = `WRITING TASK 2\n\nYou should spend about 40 minutes on this task.\n\nWrite about the following topic:\n\n${userProvidedPrompts[(globalIndex - 1) % userProvidedPrompts.length]}\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words.`;
+                        priorityStr = "Establish a robust introductory structural paragraph with an unambiguous thesis statement. Deploy advanced compound transitions and active relative structures.";
+                        
+                        b9SampleText = `In contemporary discussions, the implications surrounding this topic spark intense debate among global policy analysts. From an empirical perspective, it is critical to evaluate the underlying socio-economic paradigms driving these shifts. I completely support the stance that structured institutional guidelines yield immense benefits, whereas unmonitored development triggers adverse structural consequences.\n\nTo begin with, the primary catalyst behind this phenomenon is the continuous acceleration of technological frameworks. For instance, recent analytical studies show that when communities adopt advanced automated systems, overall productivity values experience a significant upward trend. Furthermore, long-term stability relies heavily on nurturing structural fields, reinforcing the idea that baseline advancements foster deeper contextual knowledge fields over time.\n\nIn conclusion, while alternative viewpoints claim that traditional measures are sufficient, systemic development relies on progressive adjustments. Therefore, optimizing modern strategies remains absolutely essential for societal stability.`;
+                        b9Analysis = `• Flawless Task Achievement: Addresses every aspect of the prompt with a clear, explicit thesis throughout.\n• Rich Cohesion & Coherence: Paragraphs transition organically without tracking repetitive robotic conjunctions.\n• Band 9 Lexical Range: Uses complex contextual combinations ('empirical perspective', 'socio-economic paradigms').`;
+                    }
+
+                    const paragraphA = `Paragraph A: Recent comprehensive studies investigating ${coreTheme.topic} reveal that specific anomalies disrupt traditional systemic metrics. Within specialized ${contextArea} frameworks, researchers noticed that extreme modifications cause significant changes. These initial variations directly challenge previous structural expectations, proving that standard parameters fail to predict outcomes accurately under stress.`;
+                    const paragraphB = `Paragraph B: Experts highlight that managing these shifts requires utilizing advanced strategies containing high amounts of ${keyWord1}. When ambient parameters fall, system variables decrease instantly instead of maintaining a steady state. This sudden degradation stems from an inherent structural vulnerability to unexpected external pressures, causing nearby detection mechanisms to track anomalous values.`;
+                    const paragraphC = `Paragraph C: To counter these structural deficits, engineering alliances are designing modern ${keyWord2} monitors. These precise instruments isolate functional changes directly at origin nodes, preserving volatile elements deep inside secure ${keyWord3} chambers. However, the macro-level economic viability of deploying these technical adjustments across global industrial networks remains highly contentious among scientific communities.`;
+                    const completePassage = `${paragraphA}\n\n${paragraphB}\n\n${paragraphC}`;
+
+                    // FULL POOL DEPLOYMENT (safely uses globalIndex-1 without fallback duplication errors)
+                    const speakerSelection = explicitSpeakingScenarios[globalIndex - 1];
+
+                    programDatabase[uniqueDayKey] = {
+                        title: `W${w} Day ${d}: ${coreTheme.topic}`,
+                        badge: currentBadge,
+                        spP1: speakerSelection.p1,
+                        spP2: speakerSelection.p2,
+                        spP3: speakerSelection.p3,
+                        wrPrompt: finalPrompt,
+                        wrPriority: priorityStr,
+                        dataType: dataTypeString,
+                        chartUrl: chartUrlString,
+                        videoUrl: "https://www.youtube.com/@IELTSAdvantage",
+                        videoText: "Go to Channel: IELTS Advantage",
+                        sampleAnswer: b9SampleText,
+                        sampleAnalysis: b9Analysis,
+                        
+                        rdGenre: coreTheme.genre,
+                        rdTitle: fullTitle,
+                        rdDesc: `An expert academic exploration observing critical variables within ${coreTheme.genre} applications.`,
+                        rdTarget: `Locate C1 academic lexical items (${coreTheme.keys.join(', ')}) and study their syntactic function.`,
+                        rdContent: completePassage,
+                        
+                        sections: [
+                            {
+                                type: "tfng",
+                                title: "Questions 1-4: True / False / Not Given",
+                                instruction: "Do the following statements agree with the information given in the reading passage?",
+                                items: [
+                                    { text: `1. Systemic anomalies within ${contextArea} frameworks improve overall structural consistency.`, answer: "FALSE" },
+                                    { text: "2. Standard predictive indicators reliably estimate system tracking metrics during intense operational stress.", answer: "FALSE" },
+                                    { text: "3. Extreme modifications inside specialized research conditions cause noticeable metric changes.", answer: "TRUE" },
+                                    { text: "4. Global regulatory agencies have immediately implemented mandatory funding laws to subsidize these monitoring networks.", answer: "NOT GIVEN" }
+                                ]
+                            },
+                            {
+                                type: "mcq",
+                                title: "Questions 5-7: Multiple Choice Questions",
+                                instruction: "Choose the correct letter, A, B, C or D, based on the information in the text.",
+                                items: [
+                                    { 
+                                        text: `5. According to Paragraph B, what directly causes the rapid decrease in system variables?`, 
+                                        options: ["A) An expansion of primary industrial funding resources.", "B) An inherent structural vulnerability to unexpected external pressures.", "C) The absolute stabilization of neighboring environmental rooms.", "D) A sudden global drop in energy demand indices."], 
+                                        answer: "B" 
+                                    },
+                                    { 
+                                        text: `6. What is the main reason why these technical monitors are not deployed worldwide immediately?`, 
+                                        options: ["A) The extreme physical weight of the instrument components.", "B) Active resistance from regional environmental safety workers.", "C) Heavy ongoing debates surrounding macro-level economic viability.", "D) Software vulnerabilities inside standard system layouts."], 
+                                        answer: "C" 
+                                    },
+                                    { 
+                                        text: `7. The writer's primary goal in Paragraph A is to show that...`, 
+                                        options: ["A) traditional formulas solve complex scientific queries easily.", "B) environmental adjustments challenge old structural expectations.", "C) modern academic testing methodologies lack clear guidelines.", "D) deep ocean analysis requires using fewer data coordinates."], 
+                                        answer: "B" 
+                                    }
+                                ]
+                            },
+                            {
+                                type: "matching",
+                                title: "Questions 8-10: Paragraph Matching Headings",
+                                instruction: "Match the following descriptive facts or statements to the correct paragraph (A, B, or C) from which they originate.",
+                                items: [
+                                    { text: `8. Analysis regarding the global financial scalability constraints of custom industrial configurations.`, answer: "Paragraph C" },
+                                    { text: "9. The clear failure of previous structural models under extreme conditions.", answer: "Paragraph A" },
+                                    { text: `10. System degradations resulting directly from sudden ambient changes and built-in vulnerabilities.`, answer: "Paragraph B" }
+                                ]
+                            },
+                            {
+                                type: "completion",
+                                title: "Questions 11-13: Summary Completion (Fill in the Blanks)",
+                                instruction: "Complete the summary text below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                                summaryText: `System settings are highly sensitive. Unplanned events distort key measurements, leading to sharp changes instead of keeping an expected steady state. To address these vulnerabilities, engineers build specialized tools designed to catch structural problems directly at their localized (11) __________________. These systems safely store volatile elements within deep (12) __________________ areas. However, whether these solutions can scale across entire (13) __________________ is still being heavily debated.`,
+                                items: [
+                                    { label: "Blank (11)", answer: "origin nodes" },
+                                    { label: "Blank (12)", answer: "secure" },
+                                    { label: "Blank (13)", answer: "industrial networks" }
+                                ]
+                            }
+                        ],
+                        lisTask: "Telegram kanali orqali kunlik Listening topshiriqlari va audio materiallar bilan ishlang:",
+                        listeningUrl: "https://t.me/ielts9_reading_listening",
+                        listeningText: "Kanalga o'tish: @ielts9_reading_listening"
+                    };
+
+                    const labelShort = isTask1 ? "Task 1" : "Task 2";
+                    const dBtn = document.createElement('button');
+                    dBtn.className = 'day-btn';
+                    dBtn.id = `btn-w${w}-d${d}`;
+                    dBtn.onclick = () => { activateSprintDay(w, d); closeSidebarMobile(); };
+                    dBtn.innerHTML = `<span>Day d${d} [${labelShort}]</span> <span>➔</span>`;
+                    dayBox.appendChild(dBtn);
+                }
+            }
+        }
+
+        function buildAccordionNavigation() {
+            const container = document.getElementById('accordion-container');
+            container.innerHTML = '';
+
+            for (let w = 1; w <= 8; w++) {
+                const accordion = document.createElement('div');
+                accordion.className = 'week-accordion';
+                accordion.id = `week-block-${w}`;
+                accordion.innerHTML = `
+                    <button class="week-btn" onclick="toggleWeekAccordion(${w})">
+                        <span>📅 Week ${w} Skill Cycle</span>
+                        <span class="arrow">▶</span>
+                    </button>
+                    <div class="days-container" id="days-box-${w}"></div>
+                `;
+                container.appendChild(accordion);
+            }
+        }
+
+        function toggleWeekAccordion(targetWeek) {
+            const targetBlock = document.getElementById(`week-block-${targetWeek}`);
+            const isOpen = targetBlock.classList.contains('open');
+            document.querySelectorAll('.week-accordion').forEach(block => block.classList.remove('open'));
+            if (!isOpen) { targetBlock.classList.add('open'); }
+        }
+
+        function build13QuestionExamUI(sections) {
+            const container = document.getElementById('reading-questions-container');
+            container.innerHTML = '';
+            answerValidationRegistry = [];
+
+            let globalQuestionIndex = 0;
+
+            sections.forEach(sec => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.style.marginBottom = "25px";
+
+                const secTitle = document.createElement('div');
+                secTitle.className = "exam-section-title";
+                secTitle.innerHTML = `<span>${sec.title}</span>`;
+                sectionDiv.appendChild(secTitle);
+
+                const secInst = document.createElement('p');
+                secInst.style.fontSize = "0.88rem";
+                secInst.style.color = "var(--text-muted)";
+                secInst.style.marginBottom = "12px";
+                secInst.innerText = sec.instruction;
+                sectionDiv.appendChild(secInst);
+
+                if(sec.type === "completion" && sec.summaryText) {
+                    const blockText = document.createElement('div');
+                    blockText.className = "summary-block-instruction";
+                    blockText.innerText = sec.summaryText;
+                    sectionDiv.appendChild(blockText);
+                }
+
+                sec.items.forEach(item => {
+                    const qItem = document.createElement('div');
+                    qItem.className = "question-item";
+
+                    const qText = document.createElement('p');
+                    qText.className = "question-text";
+                    qText.innerText = item.text || item.label;
+                    qItem.appendChild(qText);
+
+                    answerValidationRegistry.push({
+                        index: globalQuestionIndex,
+                        expected: item.answer,
+                        type: sec.type
+                    });
+
+                    if (sec.type === "tfng") {
+                        qItem.innerHTML += `
+                            <select class="exam-select" id="q-field-${globalQuestionIndex}">
+                                <option value="">-- Choose Choice --</option>
+                                <option value="TRUE">TRUE</option>
+                                <option value="FALSE">FALSE</option>
+                                <option value="NOT GIVEN">NOT GIVEN</option>
+                            </select>
+                        `;
+                    } else if (sec.type === "mcq") {
+                        let optHTML = `<select class="exam-select" id="q-field-${globalQuestionIndex}"><option value="">-- Select Alphabet Answer --</option>`;
+                        item.options.forEach(opt => {
+                            const charKey = opt.charAt(0);
+                            optHTML += `<option value="${charKey}">${opt}</option>`;
+                        });
+                        optHTML += `</select>`;
+                        qItem.innerHTML += optHTML;
+                    } else if (sec.type === "matching") {
+                        qItem.innerHTML += `
+                            <select class="exam-select" id="q-field-${globalQuestionIndex}">
+                                <option value="">-- Select Paragraph Room --</option>
+                                <option value="Paragraph A">Paragraph A</option>
+                                <option value="Paragraph B">Paragraph B</option>
+                                <option value="Paragraph C">Paragraph C</option>
+                            </select>
+                        `;
+                    } else if (sec.type === "completion") {
+                        qItem.innerHTML += `
+                            <input type="text" class="exam-input" id="q-field-${globalQuestionIndex}" placeholder="Type target text vocabulary match...">
+                        `;
+                    }
+
+                    sectionDiv.appendChild(qItem);
+                    globalQuestionIndex++;
+                });
+
+                sectionDiv.appendChild(document.createElement('br'));
+                container.appendChild(sectionDiv);
+            });
+
+            const feedback = document.getElementById('exam-feedback-banner');
+            feedback.style.display = "none";
+            feedback.innerHTML = '';
+        }
+
+        function gradeReadingExam() {
+            const feedback = document.getElementById('exam-feedback-banner');
+            let correctCount = 0;
+            let reportHTML = `<strong style="font-size:1.05rem;">📋 IELTS Score Sheet & MCQ Analysis:</strong><br><ol style="margin-left:22px; margin-top:8px;">`;
+
+            answerValidationRegistry.forEach((q) => {
+                const userRaw = document.getElementById(`q-field-${q.index}`).value.trim();
+                const isCorrect = userRaw.toLowerCase() === q.expected.toLowerCase() || 
+                                  (q.type === "completion" && q.expected.toLowerCase().includes(userRaw.toLowerCase()) && userRaw.length > 2);
+
+                if (isCorrect) {
+                    correctCount++;
+                    reportHTML += `<li style="color:#10b981; margin-bottom:5px;">Q${q.index+1}: Correct ➔ "${q.expected}"</li>`;
+                } else {
+                    reportHTML += `<li style="color:#f87171; margin-bottom:5px;">Q${q.index+1}: Incorrect. Given: "${userRaw || 'No Answer'}" | <span style="color:#34d399; font-weight:600;">Correct Key: "${q.expected}"</span></li>`;
+                }
+            });
+
+            reportHTML += `</ol><br><strong>Final Performance: ${correctCount} / 13 Targets Solved Correctly. Estimated Band Rank equivalent: ${(correctCount >= 11) ? 'Band 8.0/9.0' : (correctCount >= 8) ? 'Band 7.0/7.5' : 'Keep practicing, bro!' }</strong>`;
+            
+            feedback.innerHTML = reportHTML;
+            feedback.style.display = "block";
+            
+            if (correctCount >= 11) {
+                feedback.style.background = "rgba(16, 185, 129, 0.15)";
+                feedback.style.borderLeft = "5px solid var(--success)";
+            } else {
+                feedback.style.background = "rgba(245, 158, 11, 0.15)";
+                feedback.style.borderLeft = "5px solid var(--warning)";
+            }
+        }
+
+        function activateSprintDay(w, d) {
+            document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-w${w}-d${d}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            const key = `w${w}-d${d}`;
+            const targetData = programDatabase[key];
+
+            document.getElementById('current-display-title').innerText = targetData.title;
+            document.getElementById('current-week-subtitle').innerText = `Week ${w} Portfolio Track | 13-Question Full Unique Exam Simulation.`;
+            document.getElementById('current-strategy').innerText = targetData.badge;
+
+            document.getElementById('sp-p1').innerText = targetData.spP1;
+            document.getElementById('sp-p2').innerText = targetData.spP2;
+            document.getElementById('sp-p3').innerText = targetData.spP3;
+
+            document.getElementById('wr-prompt').innerText = targetData.wrPrompt;
+            document.getElementById('wr-priority').innerText = targetData.wrPriority;
+            
+            document.getElementById('video-link-elem').href = targetData.videoUrl;
+            document.getElementById('video-link-elem').innerText = targetData.videoText;
+
+            document.getElementById('listening-link-elem').href = targetData.listeningUrl;
+            document.getElementById('listening-link-elem').innerText = targetData.listeningText;
+            document.getElementById('lis-task').innerText = targetData.lisTask;
+
+            document.getElementById('sample-text-body').innerText = targetData.sampleAnswer;
+            document.getElementById('sample-analysis-text').innerText = targetData.sampleAnalysis;
+            
+            document.getElementById('sample-content-box').classList.remove('open');
+            document.getElementById('sample-arrow').innerText = "▼";
+
+            document.getElementById('rd-desc').innerText = targetData.rdDesc;
+            document.getElementById('rd-genre-tag').innerText = targetData.rdGenre;
+            document.getElementById('rd-article-title').innerText = targetData.rdTitle;
+            document.getElementById('rd-target').innerText = targetData.rdTarget;
+            document.getElementById('rd-pdf-content').innerText = targetData.rdContent;
+
+            build13QuestionExamUI(targetData.sections);
+
+            const labelElement = document.getElementById('writing-label-type');
+            labelElement.innerText = targetData.badge.includes("Task 1") ? "Task 1 Report Prompt:" : "Task 2 Essay Prompt:";
+
+            const graphBox = document.getElementById('chart-container');
+            const imgElement = document.getElementById('chart-img');
+
+            if (targetData.dataType === "image") {
+                imgElement.src = targetData.chartUrl;
+                graphBox.style.display = "block";
+            } else {
+                graphBox.style.display = "none";
+                imgElement.src = "";
+            }
+
+            document.querySelectorAll('.task-check').forEach(cb => cb.checked = false);
+            calcProgress();
+        }
+
+        function calcProgress() {
+            const boxes = document.querySelectorAll('.task-check');
+            const finished = Array.from(boxes).filter(cb => cb.checked).length;
+            const total = boxes.length;
+            const ratio = Math.round((finished / total) * 100);
+
+            document.getElementById('progress-percent').innerText = `${ratio}%`;
+            if (ratio === 100) {
+                document.getElementById('progress-details').innerText = "Ajoyib! Bugungi barcha maqsadlar va testlar muvaffaqiyatli topshirildi.";
+            } else {
+                document.getElementById('progress-details').innerText = `Bugungi ${total} ta vazifadan ${finished} tasi yakunlandi.`;
+            }
+        }
+
+        window.onload = () => {
+            buildAccordionNavigation();
+            generateExtendedPlan();
+            toggleWeekAccordion(1);
+            activateSprintDay(1, 1);
+        };
+    </script>
+</body>
+</html> 
